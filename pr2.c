@@ -1,7 +1,7 @@
 #include"headerpr2.h"
 
 void autotest(void) {
-char* word[256];
+char word[256];
 printf("Before autotest...\n");
 wow_word("text.txt", word);
 if (strlen(word) == 2) {

@@ -26,17 +26,17 @@ if (fp) {
             strncpy (wrd, snach + 1, skon - snach - 1);
             wrd[skon - snach - 1] = '\0';
             if (strlen(wrd) <= word_min && *wrd >= 'A' && *wrd <= 'Z') {
-                for(i = 1, i < strlen(wrd)){
+                for(int i = 1; i < strlen(wrd)){
                     if (wrd[i] >= 48 || wrd[i] <= 57){
                        printf("Not satisfyed...\n");
                     }
                 }
-                else{
+                
                    cnt = 1;
                    word_min = strlen(wrd);
                    word[0] = '\0';
                    strcpy(word, wrd);
-                }
+                
             }
         }
     }

@@ -25,13 +25,13 @@ if (fp) {
             snach = strchr(skon + 1, '"'), skon = snach ? strchr(snach + 1, '"') : NULL) {    //
             strncpy (wrd, snach + 1, skon - snach - 1);
             wrd[skon - snach - 1] = '\0';
-            if (strlen(wrd) <= word_min && *wrd >= 'A' && *wrd <= 'Z') {
-                for(int i = 1; i < strlen(wrd)){
-                    if (wrd[i] >= 48 || wrd[i] <= 57){
-                       printf("Not satisfyed...\n");
-                    }
-                }
-                
+            if (strlen(wrd) <= word_min && *wrd >= 'A' && *wrd <= 'Z') {                
+               for(int i = 1; i < strlen(wrd)){
+                  if (wrd[i] >= 48 || wrd[i] <= 57){
+                     printf("Not satisfyed...\n");
+                  }
+                   return -1;
+               }    
                    cnt = 1;
                    word_min = strlen(wrd);
                    word[0] = '\0';

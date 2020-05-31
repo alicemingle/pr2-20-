@@ -1,20 +1,20 @@
 #include"headerpr2.h"
 
 void autotest(void) {
-char word[256];
-printf("Before autotest...\n");
-wow_word("text.txt", word);
-if (strlen(word) == 2) {
-    printf("Autotest passed...\n");
-}
-else {
-    printf("Autotest failed...\n");
-}
+   char word[256];
+   printf("Before autotest...\n");
+   wow_word("text.txt", word);
+   if (strlen(word) == 2) {
+      printf("Autotest passed...\n");
+   }
+   else {
+      printf("Autotest failed...\n");
+   }
 }
 
 int wow_word(const char* filename, char* word) {
     FILE *fp;
-    int cnt = 0;
+    int cnt = 0, a = 0;
     char s[512],wrd[512], *snach, *skon;
     int word_min = INT_MAX;
 fp = fopen(filename, "r");
@@ -27,16 +27,18 @@ if (fp) {
             wrd[skon - snach - 1] = '\0';
             if (strlen(wrd) <= word_min && *wrd >= 'A' && *wrd <= 'Z') {                
                for(int i = 1; i < strlen(wrd)){
-                  if (wrd[i] >= 48 || wrd[i] <= 57){
-                     printf("Not satisfyed...\n");
+                  if (wrd[i] <= 48 || wrd[i] >= 57){
+                      a = a + 1;
                   }
-                   return -1;
-               }    
-                   cnt = 1;
-                   word_min = strlen(wrd);
-                   word[0] = '\0';
-                   strcpy(word, wrd);
-                
+                  return(a);
+               }  
+               if (a == strlen(wrd)){
+                  printf("Satisfyed...\n");
+                  cnt = 1;
+                  word_min = strlen(wrd);
+                  word[0] = '\0';
+                  strcpy(word, wrd);
+               } 
             }
         }
     }
